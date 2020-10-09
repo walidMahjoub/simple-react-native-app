@@ -1,0 +1,79 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb", 
+    "prettier", 
+    "prettier/react"
+  ],
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+  "plugins": ["prettier", "react-hooks"],
+
+  "rules": {
+    "accessor-pairs": "error",
+    "handle-callback-err": "error",
+    "import/order": "error",
+    "react/sort-comp": "error",
+    "react/no-unused-prop-types": "error",
+    "react/no-unused-state": "error",
+    "react/no-string-refs": "error",
+    "react/require-default-props": "error",
+    "react/forbid-prop-types": "error",
+    "react/no-typos": "error",
+    "react/no-array-index-key": "error",
+    "arrow-parens": [2, "as-needed"],
+    "camelcase": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "curly": "error",
+    "func-names": 0,
+    "global-require": 0,
+    "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["features/**"]
+      }
+    ],
+    "import/prefer-default-export": 0,
+    "indent": 0,
+    "jsx-a11y/anchor-has-content": 0,
+    "jsx-a11y/label-has-for": 0,
+    "jsx-quotes": [2, "prefer-double"],
+    "max-len": 0,
+    "no-confusing-arrow": 0,
+    "no-mixed-operators": 0,
+    "no-use-before-define": ["error", { "functions": false }],
+    "no-useless-computed-key": 0,
+    "padded-blocks": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-indent": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/no-danger": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "semi": [2, "never"],
+    "space-before-function-paren": 0,
+    "prettier/prettier": "error",
+    "no-shadow": [
+      "error",
+      {
+        "allow": ["translate"]
+      }
+    ],
+    "react/prop-types": 1
+  }
+}
