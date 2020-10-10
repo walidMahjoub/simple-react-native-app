@@ -10,11 +10,19 @@
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
     "prettier:check": "prettier --check src",
-    "prettier:write": "prettier --write src"
+    "prettier:write": "prettier --write src",
+    "pod:install": "cd ./ios && pod install"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
-    "react-native": "0.63.3"
+    "react-native": "0.63.3",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-form": "^8.3.6",
+    "redux-persist": "^6.0.0",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
