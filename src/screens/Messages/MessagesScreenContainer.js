@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { getMessages } from 'store/messages/messagesSelectors'
-import { addMessage } from 'store/messages/messagesActions'
+import { addMessage, deleteMessage } from 'store/messages/messagesActions'
 import MessagesScreen from './MessagesScreen'
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  addMessage: message => dispatch(addMessage(message)),
+  addMessage: messageContent => dispatch(addMessage(messageContent)),
+  deleteMessage: messageId => dispatch(deleteMessage(messageId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessagesScreen)
