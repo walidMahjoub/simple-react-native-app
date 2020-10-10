@@ -8,12 +8,15 @@
 
 import React from 'react'
 import { Provider } from 'react-redux'
-import store from 'store/store'
+import { store, persistor } from 'store/store'
+import { PersistGate } from 'redux-persist/integration/react'
 import MessagesScreenContainer from 'screens/Messages/MessagesScreenContainer'
 
 const App = () => (
   <Provider store={store}>
-    <MessagesScreenContainer />
+    <PersistGate loading={null} persistor={persistor}>
+      <MessagesScreenContainer />
+    </PersistGate>
   </Provider>
 )
 
