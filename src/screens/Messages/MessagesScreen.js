@@ -1,11 +1,20 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { ScrollView, View } from 'react-native'
 import PropTypes from 'prop-types'
 import MessageItem from 'components/MessageItem/MessageItem'
 import MessageForm from 'components/MessageForm/MessageForm'
 import styles from './MessagesScreenStyles'
 
-const MessagesScreen = ({ messages, addMessage, deleteMessage }) => {
+const MessagesScreen = ({
+  messages,
+  addMessage,
+  deleteMessage,
+  fetchMessages,
+}) => {
+  useEffect(() => {
+    fetchMessages()
+  }, [fetchMessages])
+
   const onSubmitMessage = messageContent => {
     addMessage(messageContent)
   }
@@ -44,6 +53,7 @@ MessagesScreen.propTypes = {
   ).isRequired,
   addMessage: PropTypes.func.isRequired,
   deleteMessage: PropTypes.func.isRequired,
+  fetchMessages: PropTypes.func.isRequired,
 }
 
 export default MessagesScreen
