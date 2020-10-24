@@ -1,4 +1,5 @@
 import MessagesStorageService from 'services/MessagesStorageService'
+import { listenToAction } from 'helpers/MiddlewareHelper'
 import {
   ADD_MESSAGE,
   DELETE_MESSAGE,
@@ -36,18 +37,8 @@ const handleFetchMessage = async (payload, dispatch) => {
   }
 }
 
-export default async (action, dispatch) => {
-  switch (action.type) {
-    case ADD_MESSAGE.REQUEST:
-      handleAddMessage(action.payload, dispatch)
-      break
-    case DELETE_MESSAGE.REQUEST:
-      handleDeleteMessage(action.payload, dispatch)
-      break
-    case FETCH_MESSAGES.REQUEST:
-      handleFetchMessage(action.payload, dispatch)
-      break
-    default:
-      break
-  }
-}
+export default listenToAction({
+  [ADD_MESSAGE.REQUEST]: handleAddMessage,
+  [DELETE_MESSAGE.REQUEST]: handleDeleteMessage,
+  [FETCH_MESSAGES.REQUEST]: handleFetchMessage,
+})
