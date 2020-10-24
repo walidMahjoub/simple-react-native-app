@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getMessages } from 'store/messages/messagesSelectors'
+import { getMessages, isLoading } from 'store/messages/messagesSelectors'
 import {
   addMessage,
   deleteMessage,
@@ -9,6 +9,7 @@ import MessagesScreen from './MessagesScreen'
 
 const mapStateToProps = state => ({
   messages: getMessages(state),
+  isLoading: isLoading(state),
 })
 
 const mapDispatchToProps = dispatch => ({

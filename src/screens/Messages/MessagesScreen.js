@@ -3,6 +3,7 @@ import { ScrollView, View } from 'react-native'
 import PropTypes from 'prop-types'
 import MessageItem from 'components/MessageItem/MessageItem'
 import MessageForm from 'components/MessageForm/MessageForm'
+import Loader from 'components/Loader/Loader'
 import styles from './MessagesScreenStyles'
 
 const MessagesScreen = ({
@@ -10,6 +11,7 @@ const MessagesScreen = ({
   addMessage,
   deleteMessage,
   fetchMessages,
+  isLoading,
 }) => {
   useEffect(() => {
     fetchMessages()
@@ -40,6 +42,7 @@ const MessagesScreen = ({
           ))}
         </View>
       </ScrollView>
+      <Loader loading={isLoading} />
     </View>
   )
 }
@@ -54,6 +57,7 @@ MessagesScreen.propTypes = {
   addMessage: PropTypes.func.isRequired,
   deleteMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default MessagesScreen
