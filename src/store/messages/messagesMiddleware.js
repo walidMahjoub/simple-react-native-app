@@ -31,6 +31,9 @@ const handleDeleteMessage = async (payload, dispatch) => {
 const handleFetchMessage = async (payload, dispatch) => {
   try {
     const messages = await MessagesStorageService.getMessages()
+    if (!messages) {
+      throw new Error('messages not found')
+    }
     dispatch(fetchMessages.success(messages))
   } catch (e) {
     dispatch(fetchMessages.failure())
